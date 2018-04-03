@@ -1,0 +1,14 @@
+<h1>Saved Adventures</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @adventures.each do |adventure| %>
+    <tr>
+      <td><%= adventure.name %></td>
+      <td><%= link_to 'Show', adventure_path(adventure) %></td>
+    </tr>
+  <% end %>
+</table>
