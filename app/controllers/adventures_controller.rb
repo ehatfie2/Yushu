@@ -3,6 +3,14 @@ class AdventuresController < ApplicationController
     end
     
     def create
-        render plain: params[:adventure].inspect
+        @adventure = Adventure.new(adventure_params)
+        
+        @adventure.save
+        redirect_to @adventure
     end
+    
+    private
+        def adventure_params
+            params.require(:adventure).permit(:name)
+        end
 end
