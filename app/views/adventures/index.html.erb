@@ -11,7 +11,11 @@
     <tr>
       <td><%= adventure.name %></td>
       <td><%= link_to 'Show', adventure_path(adventure) %></td>
-      <td><%= link_to 'Edit', edit_adventure_path(adventure) %>
+      <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
+      <td><%= link_to 'Delete', adventure_path(adventure), 
+              method: :delete,
+              data: {confirm: 'Are you sure you want to delete your adventure?' } %></td>
+      
     </tr>
   <% end %>
 </table>

@@ -35,6 +35,13 @@ class AdventuresController < ApplicationController
         end
     end
     
+    def destroy
+        @adventure = Adventure.find(params[:id])
+        @adventure.destroy
+        
+        redirect_to adventures_path
+    end
+    
     private
         def adventure_params
             params.require(:adventure).permit(:name)
