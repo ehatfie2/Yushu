@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/login'
   
-  resources :adventures
+  resources :adventures do
+    resources :storylines
+  end
   
   root 'welcome#login'
 
