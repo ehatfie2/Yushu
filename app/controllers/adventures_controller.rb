@@ -11,6 +11,10 @@ class AdventuresController < ApplicationController
         @adventure = Adventure.new
     end
     
+    def edit
+        @adventure = Adventure.find(params[:id])
+    end
+    
     def create
         @adventure = Adventure.new(adventure_params)
         
@@ -18,6 +22,16 @@ class AdventuresController < ApplicationController
             redirect_to @adventure
         else
             render 'new'
+        end
+    end
+    
+    def update
+        @adventure = Adventure.find(params[:id])
+ 
+        if @adventure.update(adventure_params)
+            redirect_to @adventure
+        else
+            render 'edit'
         end
     end
     
