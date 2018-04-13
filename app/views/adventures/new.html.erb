@@ -9,15 +9,15 @@
         <%= pluralize(@adventure.errors.count, "error") %> prohibited
         this adventure from being saved:
       </h2>
-      <ul>
+      
         <% @adventure.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-      </ul>
+      
     </div>
   <% end %>
 
-  <p>
+  <p id="saved">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
@@ -27,4 +27,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back to Saved Adventures', adventures_path %>
+<%= link_to 'Back to Saved Adventures', adventures_path, class: 'link-to-text-color' %>
