@@ -3,6 +3,17 @@
   <%= @adventure.name %>
 </p>
 
+<p>
+  <strong>Storyline: </strong>
+  <%= @adventure.storylines.each do |storyline| %>
+    <p>
+      <%= storyline.selection %>
+    </p>
+  <% end %>
+</p>
+
+
+
 
 <%= link_to 'Edit Adventure', edit_adventure_path(@adventure) %> |
 <%= link_to 'Back to Saved Adventures', adventures_path %>
