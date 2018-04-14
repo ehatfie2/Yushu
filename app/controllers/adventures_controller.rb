@@ -42,6 +42,10 @@ class AdventuresController < ApplicationController
         redirect_to adventures_path
     end
     
+    def play
+        @adventure = Adventure.find(params[:id])
+    end
+    
     private
         def adventure_params
             params.require(:adventure).permit(:name)

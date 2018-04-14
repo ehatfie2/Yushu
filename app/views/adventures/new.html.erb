@@ -5,5 +5,17 @@
 
 <%= render 'form' %>
 
+<p> Choose a storyline for your adventure:</p>
+
+
+    <p>
+        <%= select(:storyline, :adventure_id, [['Detective', 1], ['Storyline 2', 2]]) %>
+    </p>
+    <p>
+        
+    </p>
+
+
+
 
 <%= link_to 'Back to Saved Adventures', adventures_path, class: 'link-to-text-color' %>
