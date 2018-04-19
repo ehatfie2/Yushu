@@ -12,17 +12,9 @@
   <% end %>
 </p>
 
-<p> Choose a storyline for your adventure:</p>
-<%= form_with(model: [ @adventure, @adventure.storylines.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :selection %><br>
-    <%= form.text_field :selection %>
-  </p>
-  
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<input type="radio" name="options" value="1">Option 1</input>
+<input type="radio" name="options" value="2">Option 2</input>
+
 
 
 <%= link_to 'Edit Adventure', edit_adventure_path(@adventure) %> |

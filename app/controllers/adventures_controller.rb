@@ -5,6 +5,12 @@ class AdventuresController < ApplicationController
     
     def show
         @adventure = Adventure.find(params[:id])
+        case params["options"].to_i
+            when 1
+                
+            when 2
+  
+        end
     end
     
     def new
