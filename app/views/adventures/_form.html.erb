@@ -20,8 +20,10 @@
   </p>
   
   <p>Choose a storyline for your adventure</p>
-        <p>Storyline 1<%= radio_button_tag(:storyline, "Storyline 1") %></p>
-        <p>Storyline 2<%= radio_button_tag(:storyline, "Storyline 2") %></p>
+    <%= form.radio_button :storyline, 'story1' %> 
+    <%= form.label :storyline, 'Storyline 1', :value => 'story1' %>
+    <%= form.radio_button :storyline, 'story2' %>
+    <%= form.label :storyline, 'Storyline 2', :value => 'story2' %>
   </p>
 
   <p>
