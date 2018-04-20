@@ -5,17 +5,14 @@
 
 <%= render 'form' %>
 
-<p> Choose a storyline for your adventure:</p>
-<%= form_with(model: [ @adventure, @adventure.storylines.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :selection %><br>
-    <%= form.text_field :selection %>
-  </p>
-  
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
 
+<%= form_tag('adventure', :method =>"new") do%>
+<p>
+    
+    
+    
+    <p><%= submit_tag("Submit") %></p>
+</p>
+<% end %>
 
 <%= link_to 'Back to Saved Adventures', adventures_path, class: 'link-to-text-color' %>

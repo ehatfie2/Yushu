@@ -18,6 +18,11 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
+  
+  <p>Choose a storyline for your adventure</p>
+        <p>Storyline 1<%= radio_button_tag(:storyline, "Storyline 1") %></p>
+        <p>Storyline 2<%= radio_button_tag(:storyline, "Storyline 2") %></p>
+  </p>
 
   <p>
     <%= form.submit %>

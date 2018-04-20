@@ -4,17 +4,9 @@
 </p>
 
 <p>
-  <strong>Storyline: </strong>
-  <%= @adventure.storylines.each do |storyline| %>
-    <p>
-      <%= storyline.selection %>
-    </p>
-  <% end %>
+  <strong>Storyline:</strong>
+  <%= @adventure.storyline %>
 </p>
-
-<input type="radio" name="options" value="1">Option 1</input>
-<input type="radio" name="options" value="2">Option 2</input>
-
 
 
 <%= link_to 'Edit Adventure', edit_adventure_path(@adventure) %> |
