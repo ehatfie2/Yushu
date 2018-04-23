@@ -4,25 +4,9 @@
 </p>
 
 <p>
-  <strong>Storyline: </strong>
-  <%= @adventure.storylines.each do |storyline| %>
-    <p>
-      <%= storyline.selection %>
-    </p>
-  <% end %>
+  <strong>Storyline:</strong>
+  <%= @adventure.storyline %>
 </p>
-
-<p> Choose a storyline for your adventure:</p>
-<%= form_with(model: [ @adventure, @adventure.storylines.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :selection %><br>
-    <%= form.text_field :selection %>
-  </p>
-  
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
 
 
 <%= link_to 'Edit Adventure', edit_adventure_path(@adventure), class: 'link-to-text-color' %> |

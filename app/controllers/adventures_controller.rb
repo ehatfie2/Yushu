@@ -5,10 +5,12 @@ class AdventuresController < ApplicationController
     
     def show
         @adventure = Adventure.find(params[:id])
+    
     end
     
     def new
         @adventure = Adventure.new
+        
     end
     
     def edit
@@ -16,13 +18,29 @@ class AdventuresController < ApplicationController
     end
     
     def create
+        #case params["storyline"].to_i
+        #when 1
+         #   @storyline = params[:storyline]
+        #when 2
+        #    @storyline = params[:storyline]
+        #end
+        
         @adventure = Adventure.new(adventure_params)
+        
+        
+        #if params[:storyline].nil?
+         #   @adventure = @storyline = nil
+        #else
+         #   @storyline = params[:storyline]
+          #  #@adventure = Adventure.find(params[:id])
+        #end
         
         if @adventure.save
             redirect_to @adventure
         else
             render 'new'
         end
+        
     end
     
     def update
@@ -48,6 +66,6 @@ class AdventuresController < ApplicationController
     
     private
         def adventure_params
-            params.require(:adventure).permit(:name)
+            params.require(:adventure).permit(:name, :storyline)
         end
 end

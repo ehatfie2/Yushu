@@ -1,6 +1,6 @@
-<%= form_with model: @adventure, local: true do |form| %>
+<%= form_for @adventure do |form| %>
 
-    <% if @adventure.errors.any? %>
+  <% if @adventure.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@adventure.errors.count, "error") %> prohibited
@@ -17,6 +17,14 @@
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+  </p>
+  
+  <p>Choose a storyline for your adventure</p>
+  <p>
+    <%= form.radio_button :storyline, 'Storyline 1' %>
+    <%= form.label :storyline, 'Storyline 1', :value => 'story1' %>
+    <%= form.radio_button :storyline, 'Storyline 2' %>
+    <%= form.label :storyline, 'Storyline 2', :value => 'story2' %>
   </p>
 
   <p>
