@@ -6,11 +6,11 @@
         <%= pluralize(@adventure.errors.count, "error") %> prohibited
         this adventure from being saved:
       </h2>
-      <ul>
+      
         <% @adventure.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-      </ul>
+      
     </div>
   <% end %>
 
@@ -21,10 +21,11 @@
   
   <p>Choose a storyline for your adventure</p>
   <p>
+    <%= form.label :storyline, "Storyline 1", :value => 'story1' %>
     <%= form.radio_button :storyline, 'Storyline 1' %>
-    <%= form.label :storyline, 'Storyline 1', :value => 'story1' %>
-    <%= form.radio_button :storyline, 'Storyline 2' %>
     <%= form.label :storyline, 'Storyline 2', :value => 'story2' %>
+    <%= form.radio_button :storyline, 'Storyline 2'%>
+    
   </p>
 
   <p>
