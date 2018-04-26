@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420153416) do
+ActiveRecord::Schema.define(version: 20180426153715) do
 
   create_table "adventures", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "storyline"
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.string "level"
+    t.string "user_choice"
+    t.string "pointer"
+    t.integer "adventure_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["adventure_id"], name: "index_levels_on_adventure_id"
   end
 
   create_table "storylines", force: :cascade do |t|
