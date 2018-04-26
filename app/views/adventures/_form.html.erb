@@ -21,9 +21,10 @@
   
   <p>Choose a storyline for your adventure</p>
   <p>
-    <%= form.label :storyline, "Storyline 1", :value => 'story1' %>
+
+    <%= form.label :storyline, "Storyline 1", :value => 'story1',  :id => 'storyline1'%>
     <%= form.radio_button :storyline, 'Storyline 1', :checked => "checked" %>
-    <%= form.label :storyline, 'Storyline 2', :value => 'story2' %>
+    <%= form.label :storyline, 'Storyline 2', :value => 'story2', :id => 'storyline2'%>
     <%= form.radio_button :storyline, 'Storyline 2'%>
     
   </p>
