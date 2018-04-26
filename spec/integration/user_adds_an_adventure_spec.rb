@@ -15,9 +15,10 @@ feature "User adds an adventure" do
         visit new_adventure_path
         expect(page).to have_content("New Adventure")
         fill_in "Name", with: "New Adventure"
-        #choose('Storyline 1')
         expect(page).to have_content("Choose a storyline for your adventure")
-        find('story1').click
+        #choose("Storyline 1")
+        expect(page).to have_content("Storyline 1")
+        #find('Storyline').click
         click_button "Create Adventure"
         expect(page).to have_content("New Adventure")
         expect(page).to have_content("Storyline 1")
@@ -29,8 +30,9 @@ feature "User deletes an adventure" do
         visit new_adventure_path
         expect(page).to have_content("New Adventure")
         fill_in "Name", with: "New Adventure"
-        page.choose('Storyline 1')
+        #page.choose("Storyline 1")
         #find('[name=story1]').click
+        expect(page).to have_content("Storyline 1")
         click_button "Create Adventure"
         expect(page).to have_content("New Adventure")
         expect(page).to have_content("Storyline 1")
