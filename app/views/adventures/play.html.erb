@@ -8,9 +8,20 @@
     <%= f.label :level %><br>
     <%= f.text_field :level %>
   </p>
+  
+  <p>Your move: </p>
   <p>
-    <%= f.label :user_choice %><br>
-    <%= f.text_area :user_choice %>
+    <!-- need a do while here for the levels bc levels may have different pointers -->
+    
+    <!-- for ZEENAT, want to have them in a list, not all in a row -->
+
+    <%= f.label :user_choice, "Option 1", :value => '1' %>
+    <%= f.radio_button :user_choice, 'Text Here', :checked => "checked" %>
+    <%= f.label :user_choice, 'Option 2', :value => '2' %>
+    <%= f.radio_button :user_choice, 'Text Here'%>
+    <%= f.label :user_choice, 'Option 3', :value => '3' %>
+    <%= f.radio_button :user_choice, 'Text Here'%>
+    
   </p>
   <p>
     <%= f.submit %>
