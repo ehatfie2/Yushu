@@ -18,29 +18,14 @@ class AdventuresController < ApplicationController
     end
     
     def create
-        #case params["storyline"].to_i
-        #when 1
-         #   @storyline = params[:storyline]
-        #when 2
-        #    @storyline = params[:storyline]
-        #end
         
         @adventure = Adventure.new(adventure_params)
-        
-        
-        #if params[:storyline].nil?
-         #   @adventure = @storyline = nil
-        #else
-         #   @storyline = params[:storyline]
-          #  #@adventure = Adventure.find(params[:id])
-        #end
         
         if @adventure.save
             redirect_to @adventure
         else
             render 'new'
         end
-        
     end
     
     def update
