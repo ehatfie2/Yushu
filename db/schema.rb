@@ -29,12 +29,4 @@ ActiveRecord::Schema.define(version: 20180426153715) do
     t.index ["adventure_id"], name: "index_levels_on_adventure_id"
   end
 
-  create_table "storylines", force: :cascade do |t|
-    t.string "selection"
-    t.integer "adventure_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["adventure_id"], name: "index_storylines_on_adventure_id"
-  end
-
 end
