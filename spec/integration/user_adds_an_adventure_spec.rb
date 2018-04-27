@@ -8,13 +8,13 @@ feature "User adds an adventure" do
         expect(page).to have_content("New Adventure")
         expect(page).to have_content("Enter a name for your new adventure!")
         #expect(page).to have_content("Name")
-        expect(page).to have_field("Name") 
+        expect(page).to have_field('name') 
         expect(page).to have_content("Storyline")
     end
     scenario "User successfully creates a new adventure" do
         visit new_adventure_path
         expect(page).to have_content("New Adventure")
-        fill_in "Name", with: "New Adventure"
+        fill_in 'name', with: "New Adventure"
         expect(page).to have_content("Choose a storyline for your adventure")
         #choose("Storyline 1")
         expect(page).to have_content("Storyline 1")

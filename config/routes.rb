@@ -2,9 +2,15 @@ Rails.application.routes.draw do
   get 'welcome/login'
   
   resources :adventures do
-    resources :levels
+    member do
+        post 'play'
+        get 'play'
+    end
+  
+    resources :levels do
     
-    
+      
+    end
   end
   
   root 'welcome#login'

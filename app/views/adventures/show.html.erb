@@ -8,8 +8,29 @@
   <%= @adventure.storyline %>
 </p>
 
+<!-- Story levels will print here -->
+<!-- need to add increment variable to print next to level -->
+<% @adventure.levels.each do |level| %>
+  <p>
+    <strong>Level: </strong>
+    <%= level.level %>
+  </p>
+ 
+  <p>
+    <strong>User Choice: </strong>
+    <%= level.user_choice %>
+  </p>
+  
+  <p>
+    <%= link_to 'Delete Level', [level.adventure, level],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit Adventure', edit_adventure_path(@adventure), class: 'link-to-text-color' %> |
 
 <%= link_to 'Back to Saved Adventures', adventures_path, class: 'link-to-text-color' %>
+
+<%= link_to 'Play', play_adventure_path(@adventure), class: 'link-to-text-color'  %>
 
