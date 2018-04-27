@@ -11,17 +11,18 @@
   
   <p>Your move: </p>
   <p>
+  
     <!-- need a do while here for the levels bc levels may have different pointers -->
     
     <!-- for ZEENAT, want to have them in a list, not all in a row -->
 
-    <%= f.label :user_choice, "Option 1", :value => '1' %>
-    <%= f.radio_button :user_choice, 'Text Here', :checked => "checked" %>
-    <%= f.label :user_choice, 'Option 2', :value => '2' %>
-    <%= f.radio_button :user_choice, 'Text Here'%>
-    <%= f.label :user_choice, 'Option 3', :value => '3' %>
-    <%= f.radio_button :user_choice, 'Text Here'%>
-    
+      <%= f.label :user_choice, "Option 1", :value => '1' %>
+      <%= f.radio_button :user_choice, 'Text Here', :checked => "checked" %><br>
+      <%= f.label :user_choice, 'Option 2', :value => '2' %>
+      <%= f.radio_button :user_choice, 'Text Here'%><br>
+      <%= f.label :user_choice, 'Option 3', :value => '3' %>
+      <%= f.radio_button :user_choice, 'Text Here'%><br>
+  
   </p>
   <p>
     <%= f.submit %>

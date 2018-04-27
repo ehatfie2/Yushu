@@ -14,7 +14,7 @@
       <td><%= link_to 'Edit', edit_adventure_path(adventure) %></td>
       <td><%= link_to 'Play', play_adventure_path(adventure) %></td>
       <td><%= link_to 'Delete', adventure_path(adventure), 
-              method: :delete,
+              method: :delete, :id => 'delete',
               data: {confirm: 'Are you sure you want to delete your adventure?' } %></td>
       
     </tr>
