@@ -14,15 +14,12 @@
   
     <!-- need a do while here for the levels bc levels may have different pointers -->
     
-    <!-- for ZEENAT, want to have them in a list, not all in a row -->
+    <% Level::USER_CHOICES.each do |val, choice| %>
 
-      <%= f.label :user_choice, "Option 1", :value => '1' %>
-      <%= f.radio_button :user_choice, 'Text Here', :checked => "checked" %><br>
-      <%= f.label :user_choice, 'Option 2', :value => '2' %>
-      <%= f.radio_button :user_choice, 'Text Here'%><br>
-      <%= f.label :user_choice, 'Option 3', :value => '3' %>
-      <%= f.radio_button :user_choice, 'Text Here'%><br>
-  
+      <%= f.label :user_choice, choice, :value => '1' %>
+      <%= f.radio_button :user_choice, val, :checked => "checked" %> <br>
+      
+    <% end %>
   </p>
   <p>
     <%= f.submit %>
