@@ -5,7 +5,7 @@
 
 <%= form_with(model: [ @adventure, @adventure.levels.build ], local: true) do |f| %>
 
-  <% if Level.all.nil? then %>
+  <% if @adventure.levels.any? then %>
     <p> Your first level </p>
     <p>
       <%= f.label :level %><br>
@@ -23,7 +23,7 @@
       <% end %>
     </p>
     <p>
-      <%= f.submit %>
+      <%= f.submit "Enter" %>
     </p>
     
   <%  else  %>
@@ -45,7 +45,7 @@
       <% end %>
     </p>
     <p>
-      <%= f.submit %>
+      <%= f.submit "Enter" %>
     </p>
   <% end %>
 <% end %>
