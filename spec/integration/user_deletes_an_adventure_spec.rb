@@ -15,9 +15,11 @@ feature "User deletes an adventure" do
     scenario "User succesfully deletes an adventure from the adventure index page" do
         visit adventures_path
         expect(page).to have_content("Saved Adventures")
-        expect(page).to have_content("New Adventure")
-       find('tr', text: advnture.name ).click_link "Delete"
-       #find(:adventures, "//tr[td[contains(.,'My_Game')]]/td/a", :text => 'Delete').click
-        expect(page).to have_no_content('New Adventure')
+        #expect(page).to have_content("My Game")
+        find(:xpath, ".//table/tr").click
+        #find_link('delete').click
+        #find('tr', text: 'New Adventure' ).click_link "Delete"
+        #find(:adventures, "//tr[td[contains(.,'My_Game')]]/td/a", :text => 'Delete').click
+        expect(page).to have_no_content('My Game')
     end
 end
