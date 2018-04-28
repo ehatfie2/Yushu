@@ -1,8 +1,11 @@
 class LevelsController < ApplicationController
+    
+    
     def create
         @adventure = Adventure.find(params[:adventure_id])
         @level = @adventure.levels.create(level_params)
         redirect_to adventure_path(@adventure)
+        
     end
     
     def play

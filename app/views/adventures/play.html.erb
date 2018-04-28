@@ -4,26 +4,50 @@
 </p>
 
 <%= form_with(model: [ @adventure, @adventure.levels.build ], local: true) do |f| %>
-  <p>
-    <%= f.label :level %><br>
-    <%= f.text_field :level %>
-  </p>
-  
-  <p>Your move: </p>
-  <p>
-  
-    <!-- need a do while here for the levels bc levels may have different pointers -->
-    
-    <% Level::USER_CHOICES.each do |val, choice| %>
 
-      <%= f.label :user_choice, choice, :value => '1' %>
-      <%= f.radio_button :user_choice, val, :checked => "checked" %> <br>
+  <% if Level.all.nil? then %>
+    <p> Your first level </p>
+    <p>
+      <%= f.label :level %><br>
+      <%= f.text_field :level %>
+    </p>
+  
+    <p>Your move: </p>
+    <p>
+    
+      <% Level::USER_CHOICES.each do |val, choice| %>
+
+        <%= f.label :user_choice, choice %>
+        <%= f.radio_button :user_choice, choice, :checked => "checked" %> <br>
       
-    <% end %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+      <% end %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+    
+  <%  else  %>
+   
+    
+    <p>
+      <%= f.label :level %><br>
+      <%= f.text_field :level %>
+    </p>
+  
+    <p>Your move: </p>
+    <p>
+    
+      <% Level::USER_CHOICES.each do |val, choice| %>
+
+        <%= f.label :user_choice, choice %>
+        <%= f.radio_button :user_choice, choice, :checked => "checked" %> <br>
+      
+      <% end %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back to my Adventures', adventures_path %>
