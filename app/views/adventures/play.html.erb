@@ -15,10 +15,15 @@
     <p>Your move: </p>
     <p>
     
-      <% Level::USER_CHOICES.each do |val, choice| %>
+      <% Level::LEVEL_HASH[:start][:user_choices].each do |text, point| %>
 
-        <%= f.label :user_choice, choice %>
-        <%= f.radio_button :user_choice, choice, :checked => "checked" %> <br>
+        <%= f.radio_button :user_choice, text, :checked => "checked" %>
+        <%= f.radio_button :pointer, point,  :checked => "checked" %>
+        <%= f.label :user_choice, text %><br>
+        
+        
+        
+
       
       <% end %>
     </p>
