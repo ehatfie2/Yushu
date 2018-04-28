@@ -1,6 +1,6 @@
 require 'rails_helper.rb'
 
-feature "User deletes an adventure" do
+feature "User Plays their Story" do
     scenario "User successfully creates a new adventure" do
         visit new_adventure_path
         expect(page).to have_content("New Adventure")
@@ -11,13 +11,13 @@ feature "User deletes an adventure" do
         click_button "Create Adventure"
         expect(page).to have_content("My_Game")
         expect(page).to have_content("Storyline 1")
+        click_link "Play"
+        expect(page).to have_content("Current Adventure")
+        expect(page).to have_content("Your move")
+        click_button "Create Level"              #WILL CHANGE !!!
+        click_link "Delete"
     end
-    scenario "User succesfully deletes an adventure from the adventure index page" do
-        visit adventures_path
-        expect(page).to have_content("Saved Adventures")
-        expect(page).to have_content("New Adventure")
-       find('tr', text: advnture.name ).click_link "Delete"
-       #find(:adventures, "//tr[td[contains(.,'My_Game')]]/td/a", :text => 'Delete').click
-        expect(page).to have_no_content('New Adventure')
-    end
+
+    
+    
 end
