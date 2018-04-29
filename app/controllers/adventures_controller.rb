@@ -11,6 +11,12 @@ class AdventuresController < ApplicationController
     def new
         @adventure = Adventure.new
         
+        #@level = @adventure.levels.create()
+        
+        #@level.each do |name, population|
+        #    Level.create(level: 'Initial', user_choice: nil, pointer: "start'")
+        #end
+        
     end
     
     def edit
@@ -20,6 +26,11 @@ class AdventuresController < ApplicationController
     def create
         
         @adventure = Adventure.new(adventure_params)
+        
+        #@adventure = Adventure.find(params[:adventure_id])
+        
+        
+        
         
         if @adventure.save
             redirect_to @adventure

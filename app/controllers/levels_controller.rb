@@ -24,6 +24,10 @@ class LevelsController < ApplicationController
         redirect_to adventure_path(@adventure)
     end
     
+    def set_defaults
+        self.pointer = "start"
+    end
+    
     private
         def level_params
             params.require(:level).permit(:level, :user_choice, :pointer)

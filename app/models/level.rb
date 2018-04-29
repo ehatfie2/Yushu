@@ -221,7 +221,7 @@ class Level < ApplicationRecord
     	walk_away: { text: "You've had enough. This whole business has been nothing but trouble for you. You're sick of it all. Your uncle can keep his schemes and plots and glory and fame. He and this city can burn for all you care. 
     											You don't bother to respond to him, and you see his smile slowly start to fade. You turn away from him as though he's of entirely no consequence to you. You walk away from your uncle without saying a single word.
     											You don't look back. The jailhouse door slams shut behind you",
-    								user_choices:{ "...": "congratulations"}},
+    								user_choices:{ "...":"congratulations"}},
     
     	congratulations: {text: "Congratulations, you have won the game! THE END",
         							user_choice:{"":""}},
