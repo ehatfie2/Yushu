@@ -1,7 +1,7 @@
 require 'rails_helper.rb'
 
 feature "User Plays their Story" do
-    scenario "User successfully creates a new adventure" do
+    scenario "User successfully creates and deletes a new adventure" do
         visit new_adventure_path
         expect(page).to have_content("New Adventure")
         fill_in 'name', with: "My_Game"
