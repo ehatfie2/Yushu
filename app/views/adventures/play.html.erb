@@ -8,10 +8,6 @@
   <% if @adventure.levels.exists? == false then %>
     
     <p>
-      <%= f.label :level %><br>
-      <%= f.text_field :level %>
-    </p>
-    <p>
       <%= Level::LEVEL_HASH[:start][:text] %>
     </p>
   
@@ -24,19 +20,14 @@
         <%= f.label :user_choice, text %><br>
         
       <% end %>
-      
+      <%= f.text_field :level, :value => Level::LEVEL_HASH[:start][:text], :type => "hidden" %>
     </p>
     <p>
       <%= f.submit "Enter" %>
     </p>
     
   <%  else  %>
-  
-    
-    <p>
-      <%= f.label :level %><br>
-      <%= f.text_field :level %>
-    </p>
+
     <p>
       <%= Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text] %>
     </p>
@@ -51,7 +42,10 @@
         <%= f.label :user_choice, text %><br>
         
       <% end %>
+      
+      <%= f.text_field :level, :value => Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text], :type => "hidden" %>
     </p>
+    
     <p>
       <%= f.submit "Enter" %>
     </p>
