@@ -18,18 +18,137 @@ class Level < ApplicationRecord
     
     LEVEL_HASH = {
     	start: {text:"It's a warm night in October and you're walking down a dimly-lit street at midnight. 
-												You're on your way home from a covert meeting in which you learned some interesting information in exchange for a few hints of your own, courtesy of the snooping - that is, investigating - that comes with being a private detective. It wasn't strictly speaking legal, of course, but you're well aware that sometimes rule-breaking is necessary. You also have no great love for cops, and secretly feel a bit of pleasure disregarding their laws and making your own way. 
-									      As you pass by an alleyway, you hear what sounds like an intense but furtive argument. You stop for a moment and strain your ears. The voices seem to be getting steadily more heated.
-												What do you do? ",
+					    You're on your way home from a covert meeting in which you learned some interesting information in exchange for a few hints of your own, courtesy of the snooping - that is, investigating - that comes with being a private detective. It wasn't strictly speaking legal, of course, but you're well aware that sometimes rule-breaking is necessary. You also have no great love for cops, and secretly feel a bit of pleasure disregarding their laws and making your own way. 
+						As you pass by an alleyway, you hear what sounds like an intense but furtive argument. You stop for a moment and strain your ears. The voices seem to be getting steadily more heated.
+						What do you do? ",
     					user_choices:{"Try to break up the argument. It's your duty as a private detective.":"investigate",
     								"Leave. Whatever it is, it's none of your business.":"leave"}},
-    	
-    	investigate: {
+
+
+
+        investigate: {text:"You turn the corner into the alleyway and see two shadowed figures engaged in an argument. 
+                            You take note of their confrontational body language and wild hand gestures. 
+                            You think you can see the glint of a knife in the hands of the one on the right. Whatever their disagreement is, it seems to be edging closer to violence.
+                            What approach do you take to break up the fight?",
+                        user_choices:{"Authoritative and firm. They need to see you're not messing around":"firm" ,
+                        "Diplomacy is key. You don't want to fan the flames.":"diplomatic" , "Words are useless in a situation like this. You need to physically intervene":"step_in"}},
+        
     		
-    	},
     	
     	
+    	leave: {text:"You leave. You're already tired from your earlier meeting, and sometimes it gets a bit old sticking your nose in everything. 
+    	                If you don't go looking for trouble, perhaps trouble won't go looking for you (for once in your life). ",
+                        user_choices:{"The next day...":"morning" }},
     	
+    	firm: {text:"'Hey, hey, break it up!' you shout, endeavoring to sound stern and authoritative.They both startle and quickly turn towards you. 
+    	                                    The one on the right seems to panic and slashes at you with his knife.
+    	                                    You're far away enough that you manage to jump back before it can seriously injure you, but he still catches you with the edge of the knife, leaving a shallow cut on your arm.
+    	                                    Before you can say anything to try and calm him down, you hear a terrifying snarl and see a massive blurry shape materialize from the shadows. 
+    	                                    It runs directly towards the man who attacked you, and pounces. You hear an agonized scream before it abruptly cuts off. 
+                                            Looking around wildly, you see that the other man has disappeared and within seconds, the creature vanishes as well. All that's left to show anything happened at all is a bloody smear on the ground. 
+                                            You're not particularly eager to try and explain to the police what exactly just happened and what you were even doing here in the first place, so without further ado, you decide to get the hell out of there.",
+                        user_choices:{"The next day...":"morning" }},
+    	
+    	diplomatic: {text:"You approach the two men slowly, hands raised in front of you to show you mean no harm. 'Woah now,' you call out, trying to sound reasonable. Let's all just calm down, shall we? 
+    	            The men whirl around to face you. The one on the left gives a faint scoff, and the one on the right warns shakily, seeming on the edge of panic, You'll mind your own business if you know what's good for you!
+    	            You try to figure out what to say next to calm him down and de-escalate the situation, but before you have the chance, you hear a terrifying snarl and see a massive blurry shape materialize from the shadows. 
+    	            It runs directly towards the man on the right, and pounces. You hear an agonized scream before it abruptly cuts off. Looking around wildly, you see that the other man has disappeared and within seconds, the creature vanishes as well. All that's left to show anything happened at all is a bloody smear on the ground. 
+                    You're not particularly eager to try and explain to the police what exactly just happened and what you were even doing here in the first place, so without further ado, you decide to get the hell out of there.",
+                        user_choices:{"The next day...":"morning" }},
+                        
+    	step_in: {text:"You rush forward and try to step between the two arguing men to force them away from each other. Unfortunately, the person to the right startles violently at your sudden appearance. Too late you realize he thinks you're trying to attack him. Panicked, he lunges at you with his knife, and though you try to dodge it, you're too close to avoid it. The knife buries in your chest. 
+    	                You stare down in shock at the hilt of the weapon. Your knees buckle and you feel blood slowly trickle from your mouth. The man seems to realize what he's done and jumps back, clearly horrified. 
+    	                As your vision goes dark and your thoughts become vague, you hear a terrifying snarl and see a massive blurry shape pounce on the man who attacked you. The last thing you hear is his agonized scream. 
+    	                You have died.",
+                        user_choices:{"...":"game_over"}},
+    	
+    	morning: {text:"The next day, you wake up to a newspaper headline that announces a gruesome murder which has authorities baffled. You skim over the details, not wanting to disturb your fickle stomach, but you gather that it was... messy. 
+    	            As you read on, you discover that the police have a suspect in custody. To your shock, you recognize the name. 
+    	            It's your uncle.?",
+                        user_choices:{"Who is this guy anyway?":"reflect" ,
+                        "No time for a trip down memory lane! You need to get to the jailhouse posthaste!":"go_visit_the_jail" , 
+                        "Actually, you know what? No. This has nothing to do with you.":"nope"}},
+    	
+    	reflect: {text:"You know your uncle is a scientist who owns a company that specializes in DNA manipulation. Or something. 
+    	                   You don't really know what that entails and you don't much care. Science was never your best subject in school. 
+    	                   But it seems to be going well for him, because you remember your parents mentioning that he's practically rolling in money.
+    	                   You don't actually know him that well, and you don't have much of a desire to. You've met him maybe a handful of times over the course of your life, 
+    	                   and don't have much of a desire to get to know him better. You've never really trusted his oily smile and too-smooth words.",
+                        user_choices:{"Okay, that's enough background. Time to go to jail":"go_visit_the_jail" }},
+    	
+    	go_visit_the_jail: {text: "You arrive at the city jailhouse. They let you in to see him without much trouble, courtesy of your status as a respectable detective. 
+                            (okay, so maybe it has more to do with the fact that one of the guards passes you information in exchange for certain...goods, but who's counting?)
+                            When you enter your uncle's cell, you see him sitting on the bench, appearing deep in thought. He doesn't seem surprised to see you and gives you a calculating smile as you walk in. 
+                            'Uncle,' you cooly greet him. 
+                            'Child of my sibling,' he returns, unruffled. 'I have to say, I didn't think much of your career choice when I first heard of it,
+                            but considering my current situation I admit now that it may prove useful to have a family member who works adjacent to law enforcement.'
+                            Ugh. This guy kinda skeeves you out.
+                            How do you want to act towards to your uncle?",
+                        user_choices:{"Be polite, you catch more flies with honey, and he is family after all":"nice", 
+                                        "Forget manners. You don't like or trust him and you don't care if he knows it.":"mean"}},
+        
+        nope: {text: "Honestly, you barely even know the guy. He can get himself out of this mess. 
+                    You're going to have a lovely day by yourself with no mysterious murders to ruin it. 
+                    You're done.",
+                    user_choices:{"Are you sure?":"sure" }},
+        
+        sure: {text: "", user_choices:{"Yes, you're done":"game over", "On second thought...":"no"}},
+        
+        continue_reflecting: {text: "Now that you think about it, you actually remember seeing a few articles about him in the newspaper. You never paid them much attention, 
+                                    but from what you recall, half of them were praising his discoveries with the whole DNA manipulation, or creation, or like...gene theory, 
+                                    or whatever it is (like you said, you're not great at science), while the other half reported on the controversy that surrounds his field.
+                                    You remember hearing rumors floating around about illegal experimentation or human rights violations or something, 
+                                    but so far he hasn't been implicated or charged with anything. To be honest, 
+                                    you're pretty curious to find out what they actually have on him and if there's any truth to the rumors. 
+                                    You guess you'll find out once you make it to the jailhouse (hint hint).",
+                    user_choices:{"Yeah okay, you seriously need to go see your uncle now.":"Go visit the jail" }},
+        
+        no: {text: "Yeah, as nice as it would be to ignore everything, you should probably actually take care of this.",
+                    user_choices:{"So who is this guy again?":"Reflect" , "No time for a trip down memore lane!":"Go visit the jail" }},
+                    
+        nice: {text: "He nods approvingly. 'Now that's what I like to hear. It's good to see someone with proper familial loyalty. 
+                It's an all too rare thing these days.' He considers you with a shrewd look in his eyes, as though you're some fascinating specimen he has under a microscope.
+                'So,' you say, deciding to move on. 'What exactly happened here?' He takes a breath. 
+                'Here are the basic facts: I have been experimenting with DNA manipulation for many years now, endeavoring to create artificial lifeforms. 
+                I had two brilliant assistants who were helping me with my great work. One of them is now a bloody smear on the pavement. 
+                The other is the one who caused his death.'
+                He goes on to explain that two weeks ago he had finally made a breakthrough in his research, 
+                and discovered the secret to creating artifical life. 'Unfortunately,' he says darkly, 'my assistants were not to be trusted. 
+                That very night, they stole my work and vanished. 
+                I've since then put together that they created one of the beasts I designed and proceeded to quarrel over something, 
+                leading to the murder which I was then framed for.' He says he doesn't know what the quarrel was about, 
+                but that he knows where the surviving assistant will be tonight. 'He has a warehouse he uses as a lab and hideout. 
+                He thinks he's kept it a secret, but he can't hide anything from me.' He sniffs in superiority. 
+                'You'd better head over there as soon as possible. It's highly likely he'll use the creature to attack others and try to bend the city to his will. 
+                The police are useless here and I can't tell them about this anyway, so you may well be the only one who can stop him.' Hmm. 
+                That's a responsibility you're not quite sure you want. You know he's right though, so after getting directions to the warehouse, 
+                you leave, determined to do something to stop the assistant. Even if you're not sure what the hell that is yet.",
+                user_choices:{"Go to the warehouse":"final_confrontation"}},
+                
+        mean: {text: "You give your uncle a hard look. 'Look, buddy,' you say. 'Right now, we're not family. You're just a guy involved in a weird-ass murder, 
+                and I'm the one who just might be able to solve it. I don't much care whether it ends with you released or rotting in jail for the rest of your life, 
+                as long as the real culprit is caught. Whoever that might turn out to be.' He nods slowly. 'Fair enough,' he says, not bothering to argue. 
+                But you notice him watching you closely, as though pondering whether you might be trouble. Having made your stance clear, 
+                you decide to move on. 'So,' you say. 'What exactly happened here?' He takes a breath and opens his mouth, but before he can speak, you warn, 
+                'And don't even think about lying. Trust me, I'll be able to tell.' He gives you a somewhat sour look.'I wasn't intending to. 
+                As I was going to say before you so rudely interrupted, here are the basic facts: 
+                I have been experimenting with DNA manipulation for many years now, endeavoring to create artificial lifeforms. 
+                I had two brilliant assistants who were helping me with my great work. One of them is now a bloody smear on the pavement. 
+                The other is the one who caused his death.' He goes on to explain that two weeks ago he had finally made a breakthrough in his research, 
+                and discovered the secret to creating artifical life. 'Unfortunately,' he says darkly, 'my assistants were not to be trusted. 
+                That very night, they stole my work and vanished. 
+                I've since then put together that they created one of the beasts I designed and proceeded to quarrel over something, 
+                leading to the murder which I was then framed for.' He says he doesn't know what the quarrel was about, 
+                but that he knows where the surviving assistant will be tonight. 'He has a warehouse he uses as a lab and hideout. 
+                He thinks he's kept it a secret, but he can't hide anything from me.' He sniffs in superiority.
+                'You'd better head over there as soon as possible.
+                It's highly likely he'll use the creature to attack others and try to bend the city to his will. 
+                The police are useless here and I can't tell them about this anyway, so you may well be the only one who can stop him.' Hmm. 
+                That's a responsibility you're not quite sure you want. 
+                You grudgingly know he's right though, so after getting directions to the warehouse, you leave, 
+                determined to do something to stop the assistant." ,
+                user_choices:{"Go to the warehouse":"final_confrontation"}},
+                
     	final_confrontation: {text:"You arrive at the warehouse and stride through the door. The room is empty except for a few tables with what looks like lab equipment and multiple piles of folders. 
     	                A person who must be the assistant is leaning over one of the tables peering over a microscope. He whirls around as you enter. 
     	                He stares at you in shock. 'How did you find me?' he demands. No one alive knows about this place!' 

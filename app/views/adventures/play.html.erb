@@ -12,7 +12,7 @@
       <%= f.text_field :level %>
     </p>
     <p>
-      <%= Level::LEVEL_HASH[:start][:text] %>
+      <%= Level::LEVEL_HASH[:"#{@adventure.level.pointer}"][:text] %>
     </p>
   
     <p>Your move: </p>
