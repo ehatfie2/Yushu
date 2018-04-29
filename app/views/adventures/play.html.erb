@@ -24,10 +24,6 @@
         <%= f.radio_button :pointer, point,  :checked => "checked" %>
         <%= f.label :user_choice, text %><br>
         
-        
-        
-
-      
       <% end %>
     </p>
     <p>
@@ -59,3 +55,4 @@
 <% end %>
 
 <%= link_to 'Back to my Adventures', adventures_path %>
+<%= link_to 'Show', adventure_path(@adventure) %>
