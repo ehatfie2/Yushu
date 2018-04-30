@@ -7,10 +7,10 @@ feature "User Plays their Story" do
         fill_in 'name', with: "My_Game"
         #page.choose("Storyline 1")
         #find('[name=story1]').click
-        expect(page).to have_content("Storyline 1")
+        expect(page).to have_content("The Mystery of the Shadow Thief")
         click_button "Create Adventure"
         expect(page).to have_content("My_Game")
-        expect(page).to have_content("Storyline 1")
+        expect(page).to have_content("The Mystery of the Shadow Thief")
         click_link "Play"
         expect(page).to have_content("Current Adventure")
         expect(page).to have_content("Your move")
