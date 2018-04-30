@@ -8,10 +8,6 @@
   <% if @adventure.levels.exists? == false then %>
     
     <p>
-      <%= f.label :level %><br>
-      <%= f.text_field :level %>
-    </p>
-    <p>
       <%= Level::LEVEL_HASH[:start][:text] %>
     </p>
   
@@ -24,34 +20,37 @@
         <%= f.label :user_choice, text %><br>
         
       <% end %>
-      
+      <%= f.text_field :level, :value => Level::LEVEL_HASH[:start][:text], :type => "hidden" %>
     </p>
     <p>
       <%= f.submit "Enter" %>
     </p>
     
   <%  else  %>
-  
-    
-    <p>
-      <%= f.label :level %><br>
-      <%= f.text_field :level %>
-    </p>
+
     <p>
       <%= Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text] %>
     </p>
   
     <p>Your move: </p>
     <p>
-    
-      <% Level::LEVEL_HASH[:"#{Level.last.pointer}"][:user_choices].each do |text, point| %>
+      <% if Level::LEVEL_HASH[:"#{Level.last.pointer}"] != ('congratulations' || 'game over') then %>
+      
+      
+        <% Level::LEVEL_HASH[:"#{Level.last.pointer}"][:user_choices].each do |text, point| %>
 
-        <%= f.radio_button :user_choice, text, :checked => "checked" %>
-        <%= f.radio_button :pointer, point,  :checked => "checked" %>
-        <%= f.label :user_choice, text %><br>
+          <%= f.radio_button :user_choice, text, :checked => "checked" %>
+          <%= f.radio_button :pointer, point,  :checked => "checked" %>
+          <%= f.label :user_choice, text %><br>
         
+        <% end %>
+      
+        <%= f.text_field :level, :value => Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text], :type => "hidden" %>
+      </p>
+      <% else %>
+      
       <% end %>
-    </p>
+    
     <p>
       <%= f.submit "Enter" %>
     </p>

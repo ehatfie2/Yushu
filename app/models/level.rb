@@ -31,7 +31,8 @@ class Level < ApplicationRecord
                             You think you can see the glint of a knife in the hands of the one on the right. Whatever their disagreement is, it seems to be edging closer to violence.
                             What approach do you take to break up the fight?",
                         user_choices:{"Authoritative and firm. They need to see you're not messing around":"firm" ,
-                        "Diplomacy is key. You don't want to fan the flames.":"diplomatic" , "Words are useless in a situation like this. You need to physically intervene":"step_in"}},
+                        "Diplomacy is key. You don't want to fan the flames.":"diplomatic" , 
+                        "Words are useless in a situation like this. You need to physically intervene":"step_in"}},
         
     		
     	
@@ -60,7 +61,7 @@ class Level < ApplicationRecord
     	                You stare down in shock at the hilt of the weapon. Your knees buckle and you feel blood slowly trickle from your mouth. The man seems to realize what he's done and jumps back, clearly horrified. 
     	                As your vision goes dark and your thoughts become vague, you hear a terrifying snarl and see a massive blurry shape pounce on the man who attacked you. The last thing you hear is his agonized scream. 
     	                You have died.",
-                        user_choices:{"...":"game_over"}},
+                        user_choices:{"keep going":"game_over"}},
     	
     	morning: {text:"The next day, you wake up to a newspaper headline that announces a gruesome murder which has authorities baffled. You skim over the details, not wanting to disturb your fickle stomach, but you gather that it was... messy. 
     	            As you read on, you discover that the police have a suspect in custody. To your shock, you recognize the name. 
@@ -104,7 +105,7 @@ class Level < ApplicationRecord
                     user_choices:{"Yeah okay, you seriously need to go see your uncle now.":"Go visit the jail" }},
         
         no: {text: "Yeah, as nice as it would be to ignore everything, you should probably actually take care of this.",
-                    user_choices:{"So who is this guy again?":"Reflect" , "No time for a trip down memore lane!":"Go visit the jail" }},
+                    user_choices:{"So who is this guy again?":"Reflect" , "No time for a trip down memore lane!":"go_visit_the_jail" }},
                     
         nice: {text: "He nods approvingly. 'Now that's what I like to hear. It's good to see someone with proper familial loyalty. 
                 It's an all too rare thing these days.' He considers you with a shrewd look in his eyes, as though you're some fascinating specimen he has under a microscope.
@@ -147,7 +148,7 @@ class Level < ApplicationRecord
                 That's a responsibility you're not quite sure you want. 
                 You grudgingly know he's right though, so after getting directions to the warehouse, you leave, 
                 determined to do something to stop the assistant." ,
-                user_choices:{"Go to the warehouse":"final_confrontation"}},
+                user_choices:{ "Go to the warehouse":"final_confrontation"}},
                 
     	final_confrontation: {text:"You arrive at the warehouse and stride through the door. The room is empty except for a few tables with what looks like lab equipment and multiple piles of folders. 
     	                A person who must be the assistant is leaning over one of the tables peering over a microscope. He whirls around as you enter. 
@@ -155,20 +156,20 @@ class Level < ApplicationRecord
     	                You smirk. 'Seems like your secrets aren't as secret as you think.'
     	                He growls. 'No matter. You can't win, you know. I do have a literal monster on my side, or have you forgotten?' He raises a hand, fingers prepared to snap and call for the creature.
     	                Uh oh. You'd better stop him quick. What do you do? ",
-    		user_choices:{"Rush at him and attack!":"attack",
-    					    "Try to stall and find out more information":"more info",
-    						"Cause a distraction and attack him when his attention is elsewhere": "sneaky attack"}},
+    		user_choices:{ "Rush at him and attack!":"attack",
+    					    "Try to stall and find out more information":"more_info",
+    						"Cause a distraction and attack him when his attention is elsewhere":"sneaky_attack"}},
     	
     	attack: { text:"You run at him with a roar, fist raised to knock him out with a punch to the face. You don't even make it halfway to him before he snaps his fingers and gives an attack command.
                         You hear a growl from one of the darkened corners. It grows louder and louder until it's a snarl of rage. Something barrels towards you and pounces. 
                         Your last thought before the creature's claws and teeth descend on you is 'Oops'. You have died.",
     	
-    						user_choices:{ "...": 'game over'}},
+    						user_choices:{ "...":'game_over'}},
     	
     	more_info: {text:"'Wait, hold on a second!' you yell. 'Don't you want to know what your former boss is plotting against you? How do you think I got here, after all?'",
     	
     							user_choices:{ "Rush him and attack!":"attack",
-    	                "Cause a distraction and attack him when his attention is elsewhere": "sneaky attack"}},
+    	                        "Cause a distraction and attack him when his attention is elsewhere":"sneaky_attack"}},
     	
     	
     	sneaky: { text: "You think quickly. You probably won't have enough time to reach him before he sets the monster on you, so you have to neutralize him from a distance.
@@ -186,7 +187,7 @@ class Level < ApplicationRecord
                         You take a moment to gather up the folders containing evidence of the many misdeeds of your uncle and his assistants, and then exit the warehouse. 
                         The creature follows you out and then slips away into the night. You wonder if you'll ever see it again. Exhausted, you head back home to get some well-earned sleep.",
     	
-    							user_choices:{ "The next day...": "jail again"}},
+    							user_choices:{ "The next day...":"jail_again"}},
     							
     	jail_again: { text: "The next day, you head to the jailhouse one last time to see your uncle as he's released.
                         When you get there, he's already out and collecting his things at the desk. You still have the file the assistant dropped. You haven't quite decided what to do with it.
@@ -199,8 +200,8 @@ class Level < ApplicationRecord
                         Anything you could want - money, power, fame - will be easily within our reach. It's a once-in-a-lifetime opportunity.'He smiles at you, already sure what your answer will be. 'What you do say?'
                         What do you do?",
         						user_choices:{ "Join him":"join",
-                      							"Turn him in":"turn in",
-                      							"Walk Away. You're done with all of this": "walk away"}},
+                      							"Turn him in":"turn_in",
+                      							"Walk Away. You're done with all of this": "walk_away"}},
                       
                       
     	join: { text: "You ignore the slight twinge of your conscience. It's been a long time since you followed it anyway. Your uncle's offer is far too appealing to resist. 
