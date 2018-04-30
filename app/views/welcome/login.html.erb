@@ -4,22 +4,8 @@
 <p id="description">Consequences is a short yet intense choose-your-own-adventure game in which you play as a world-weary private detective who must 
 make difficult decisions in order to solve mysteries, alter the course of fate, and perhaps even choose between life and death...</p>
 
-<%= form_for :account do |f| %>
-    <p id="username">
-        <%= f.label :username %><br>
-        <%= f.text_field :username %>
-    </p>
-    <p id="password">
-        <%= f.label :password %><br>
-        <%= f.text_field :password %>
-    </p>
-    
-    <p id="submit">
-        <%= f.submit value="Login"%>
-    </p>
-    
-<% end %>
 
 
-<%= link_to 'My Adventures', controller: 'adventures' %>
+
+<p><small><%= link_to 'Play Now', controller: 'adventures' %></small></p>
     
