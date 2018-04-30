@@ -91,7 +91,7 @@ class Level < ApplicationRecord
                     user_choices:{"Yeah okay, you seriously need to go see your uncle now.":"Go visit the jail" }},
         
         no: {text: "Yeah, as nice as it would be to ignore everything, you should probably actually take care of this.",
-                    user_choices:{"So who is this guy again?":"Reflect" , "No time for a trip down memore lane!":"go_visit_the_jail" }},
+                    user_choices:{"So who is this guy again?":"Reflect" , "No time for a trip down memory lane!":"go_visit_the_jail" }},
                     
         nice: {text: "He nods approvingly. 'Now that's what I like to hear. It's good to see someone with proper familial loyalty. 
                 It's an all too rare thing these days.' He considers you with a shrewd look in his eyes, as though you're some fascinating specimen he has under a microscope.
