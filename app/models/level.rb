@@ -79,7 +79,7 @@ class Level < ApplicationRecord
                     You're done.",
                     user_choices:{"Are you sure?":"sure" }},
         
-        sure: {text: "", user_choices:{"Yes, you're done":"game over", "On second thought...":"no"}},
+        sure: {text: "", user_choices:{"Yes, you're done":"game_over", "On second thought...":"no"}},
         
         continue_reflecting: {text: "Now that you think about it, you actually remember seeing a few articles about him in the newspaper. You never paid them much attention, 
                                     but from what you recall, half of them were praising his discoveries with the whole DNA manipulation, or creation, or like...gene theory, 
@@ -88,10 +88,10 @@ class Level < ApplicationRecord
                                     but so far he hasn't been implicated or charged with anything. To be honest, 
                                     you're pretty curious to find out what they actually have on him and if there's any truth to the rumors. 
                                     You guess you'll find out once you make it to the jailhouse (hint hint).",
-                    user_choices:{"Yeah okay, you seriously need to go see your uncle now.":"Go visit the jail" }},
+                    user_choices:{"Yeah okay, you seriously need to go see your uncle now.":"go_visit_the_jail" }},
         
         no: {text: "Yeah, as nice as it would be to ignore everything, you should probably actually take care of this.",
-                    user_choices:{"So who is this guy again?":"Reflect" , "No time for a trip down memory lane!":"go_visit_the_jail" }},
+                    user_choices:{"So who is this guy again?":"reflect" , "No time for a trip down memory lane!":"go_visit_the_jail" }},
                     
         nice: {text: "He nods approvingly. 'Now that's what I like to hear. It's good to see someone with proper familial loyalty. 
                 It's an all too rare thing these days.' He considers you with a shrewd look in his eyes, as though you're some fascinating specimen he has under a microscope.
@@ -195,7 +195,7 @@ class Level < ApplicationRecord
     									You smile and extend your hand to your uncle. 'Accepted,' you say. 'I think I'm going to enjoy working with you.'
     									He shakes your hand, looking immensely pleased. 'I promise you,'' he says, 'We are going to accomplish great things together. The world is our oyster.' 'Well then we'd better get started, haven't we?'
     									Together, you walk out the jailhouse door and toward whatever lays beyond.",
-    						user_choices:{"...": "congratulations"}},
+    						user_choices:{"...":"congratulations"}},
     
     	turn_in: { text: "You feel your lip curl in disgust at his scheming. You can't in good conscience let him get away with this when you have the power to stop it. 
     										You coldly say, 'You know, your assistant dropped a fascinating file when he died. If I recall correctly, it contains information about some sort of illegal experiments done in the city over the past twenty years. 
