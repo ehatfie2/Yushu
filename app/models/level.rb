@@ -1,20 +1,6 @@
 class Level < ApplicationRecord
   belongs_to :adventure
-  
-    USER_CHOICES = {
-	"1_1" => "You go home",
-	"1_2" => "You investigate",
-	"1_3" => "TEXT HERE",
-	"2_1_1" => "TEXT HERE",
-    }
-    
-    STORYTEXT = {
-	"level1" => "TEXT HERE",
-	"level2_1" => "TEXT HERE",
-	"level2_2" => "TEXT HERE",
-	"level2_3" => "TEXT HERE"
-    }
-    
+
     
     LEVEL_HASH = {
     	start: {text:"It's a warm night in October and you're walking down a dimly-lit street at midnight. 
@@ -32,7 +18,7 @@ class Level < ApplicationRecord
                             What approach do you take to break up the fight?",
                         user_choices:{"Authoritative and firm. They need to see you're not messing around":"firm" ,
                         "Diplomacy is key. You don't want to fan the flames.":"diplomatic" , 
-                        "Words are useless in a situation like this. You need to physically intervene":"step_in"}},
+                        "Words are useless in a situation like this. You need to physically intervene":"step_in" }},
         
     		
     	
@@ -55,20 +41,20 @@ class Level < ApplicationRecord
     	            You try to figure out what to say next to calm him down and de-escalate the situation, but before you have the chance, you hear a terrifying snarl and see a massive blurry shape materialize from the shadows. 
     	            It runs directly towards the man on the right, and pounces. You hear an agonized scream before it abruptly cuts off. Looking around wildly, you see that the other man has disappeared and within seconds, the creature vanishes as well. All that's left to show anything happened at all is a bloody smear on the ground. 
                     You're not particularly eager to try and explain to the police what exactly just happened and what you were even doing here in the first place, so without further ado, you decide to get the hell out of there.",
-                        user_choices:{"The next day...":"morning" }},
+                        user_choices:{ "The next day...":"morning" }},
                         
     	step_in: {text:"You rush forward and try to step between the two arguing men to force them away from each other. Unfortunately, the person to the right startles violently at your sudden appearance. Too late you realize he thinks you're trying to attack him. Panicked, he lunges at you with his knife, and though you try to dodge it, you're too close to avoid it. The knife buries in your chest. 
     	                You stare down in shock at the hilt of the weapon. Your knees buckle and you feel blood slowly trickle from your mouth. The man seems to realize what he's done and jumps back, clearly horrified. 
     	                As your vision goes dark and your thoughts become vague, you hear a terrifying snarl and see a massive blurry shape pounce on the man who attacked you. The last thing you hear is his agonized scream. 
     	                You have died.",
-                        user_choices:{"keep going":"game_over"}},
+                        user_choices:{"keep going":"game_over" }},
     	
     	morning: {text:"The next day, you wake up to a newspaper headline that announces a gruesome murder which has authorities baffled. You skim over the details, not wanting to disturb your fickle stomach, but you gather that it was... messy. 
     	            As you read on, you discover that the police have a suspect in custody. To your shock, you recognize the name. 
     	            It's your uncle.?",
-                        user_choices:{"Who is this guy anyway?":"reflect" ,
+                        user_choices:{ "Who is this guy anyway?":"reflect" ,
                         "No time for a trip down memory lane! You need to get to the jailhouse posthaste!":"go_visit_the_jail" , 
-                        "Actually, you know what? No. This has nothing to do with you.":"nope"}},
+                        "Actually, you know what? No. This has nothing to do with you.":"nope" }},
     	
     	reflect: {text:"You know your uncle is a scientist who owns a company that specializes in DNA manipulation. Or something. 
     	                   You don't really know what that entails and you don't much care. Science was never your best subject in school. 
@@ -172,7 +158,7 @@ class Level < ApplicationRecord
     	                        "Cause a distraction and attack him when his attention is elsewhere":"sneaky_attack"}},
     	
     	
-    	sneaky: { text: "You think quickly. You probably won't have enough time to reach him before he sets the monster on you, so you have to neutralize him from a distance.
+    	sneaky_attack: { text: "You think quickly. You probably won't have enough time to reach him before he sets the monster on you, so you have to neutralize him from a distance.
 
                         Quick as a flash, you pull off one your heavy boots and hurl it with all your strength at his face. 
                         He's too surprised to react in time, and it hits him square on his nose, gushing blood and causing him to stagger.
