@@ -27,36 +27,33 @@
     </p>
     
   <%  else  %>
+    <% if Level.last.pointer == 'congratulations' && @adventure.levels.exists? then %>
+        <p>Congratulations! You won!</p>
+    <% elsif  @adventure.levels.exists? && Level.last.pointer == ('game_over' || 'sure') %>
+        <p>Game over...You lost!</p>
+    <% else %>
 
-    <p>
-      <%= Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text] %>
-    </p>
+      <p>
+        <%= Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text] %>
+      </p>
   
-    <p>Your move: </p>
-    <p>
-      <% if Level::LEVEL_HASH[:"#{Level.last.pointer}"] != ('congratulations' || 'game over') then %>
-      
-      
+      <p>Your move: </p>
+      <p>
         <% Level::LEVEL_HASH[:"#{Level.last.pointer}"][:user_choices].each do |text, point| %>
-
           <%= f.radio_button :user_choice, text, :checked => "checked" %>
           <%= f.radio_button :pointer, point,  :checked => "checked" %>
           <%= f.label :user_choice, text %><br>
-        
         <% end %>
       
         <%= f.text_field :level, :value => Level::LEVEL_HASH[:"#{Level.last.pointer}"][:text], :type => "hidden" %>
       </p>
-      <% else %>
       
-      <% end %>
+    <% end %>
     
     <p>
       <%= f.submit "Enter" %>
     </p>
    
-    
-    
   <% end %>
 <% end %>
 
