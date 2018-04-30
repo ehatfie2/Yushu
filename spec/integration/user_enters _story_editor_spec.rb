@@ -14,8 +14,9 @@ feature "User Plays their Story" do
         click_link "Play"
         expect(page).to have_content("Current Adventure")
         expect(page).to have_content("Your move")
-        click_button "Create Level"              #WILL CHANGE !!!
-        click_link "Delete"
+        click_button "Enter"
+        expect(page).to have_content("Current Adventure")
+        expect(page).to have_content("Your move")
     end
 
     
